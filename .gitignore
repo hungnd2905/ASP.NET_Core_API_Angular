@@ -530,3 +530,5 @@ dist
 
 .angular/cache 
 
+*.db-shm
+*.db-wal
