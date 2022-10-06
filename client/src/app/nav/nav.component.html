@@ -17,11 +17,18 @@
       </li>
     </ul>
 
-    <div class="dropdown" *ngIf="loggedIn">
-      <a href="" class="dropdown-toggle text-light">Welcome user</a>
-      <div class="dropdown-menu">
-        <a href="" class="dropdown-item">Edit Profile</a>
-        <a href="" class="dropdown-item" (click)="logout()">Logout</a>
+    <div ngbDropdown class="d-inline-block" *ngIf="loggedIn">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        id="dropdownBasic1"
+        ngbDropdownToggle
+      >
+        Welcome User
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem>Edit Profile</button>
+        <button ngbDropdownItem (click)="logout()">Logout</button>
       </div>
     </div>
 
