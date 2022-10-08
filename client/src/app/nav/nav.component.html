@@ -2,7 +2,10 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#">MeetUp App</a>
 
-    <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="loggedIn">
+    <ul
+      class="navbar-nav me-auto mb-2 mb-md-0"
+      *ngIf="accountService.currentUser$ | async"
+    >
       <li class="nav-item">
         <a class="nav-link" href="#">Matches</a>
       </li>
@@ -12,12 +15,13 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Messages</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" (click)="logout()">Logout</a>
-      </li>
     </ul>
 
-    <div ngbDropdown class="d-inline-block" *ngIf="loggedIn">
+    <div
+      ngbDropdown
+      class="d-inline-block"
+      *ngIf="accountService.currentUser$ | async"
+    >
       <button
         type="button"
         class="btn btn-outline-primary"
@@ -33,7 +37,7 @@
     </div>
 
     <form
-      *ngIf="!loggedIn"
+      *ngIf="(accountService.currentUser$ | async) === null"
       #loginForm="ngForm"
       class="d-flex"
       (ngSubmit)="login()"
