@@ -26,7 +26,7 @@
     <div
       ngbDropdown
       class="d-inline-block"
-      *ngIf="accountService.currentUser$ | async"
+      *ngIf="accountService.currentUser$ | async as user"
     >
       <button
         type="button"
@@ -34,7 +34,7 @@
         id="dropdownBasic1"
         ngbDropdownToggle
       >
-        Welcome User
+        Welcome {{ user.username | titlecase }}
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <button ngbDropdownItem>Edit Profile</button>
